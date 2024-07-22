@@ -25,12 +25,12 @@ pub enum Action {
     }
 }
 
-#[derive(TypeInfo, Encode, Decode)]
+#[derive(TypeInfo, Encode, Decode, PartialEq, Debug)]
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
 pub enum Event {
     Hello,
     Fine,
     Number(u8),
-    MessageSend,
+    MessageAlreadySend,
 }

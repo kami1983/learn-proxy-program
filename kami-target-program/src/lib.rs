@@ -1,5 +1,5 @@
 #![no_std]
-
+use gstd::debug;
 use gstd::{exec, msg, TypeInfo, Encode, Decode};
 
 static mut SEED: u8 = 0;
@@ -25,7 +25,13 @@ pub enum Event {
 }
 
 #[no_mangle]
+extern "C" fn init() {
+    debug!("Target program init() running");
+}
+
+#[no_mangle]
 extern "C" fn handle() {
+    debug!("Target program handle() running");
     let action: Action = msg::load().expect("Error in decode message");
     let reply: Event = match action {
         Action::Hello => Event::Hello,

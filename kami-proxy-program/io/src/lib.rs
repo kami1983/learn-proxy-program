@@ -18,6 +18,14 @@ impl Metadata for ProxyMetadata {
 #[codec(crate = gstd::codec)]
 #[scale_info(crate = gstd::scale_info)]
 pub enum Action {
+    SendMessage(MessageAction),
+    CheckPeply,
+}
+
+#[derive(TypeInfo, Encode, Decode, Debug)]
+#[codec(crate = gstd::codec)]
+#[scale_info(crate = gstd::scale_info)]
+pub enum MessageAction {
     Hello,
     HowAreYou,
     MakeRandomNumber {
@@ -33,4 +41,7 @@ pub enum Event {
     Fine,
     Number(u8),
     MessageAlreadySend,
+    MessageSent,
+    WrongStatus,
+    NoReplyReceived,
 }

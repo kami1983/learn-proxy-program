@@ -61,6 +61,7 @@ extern "C" fn handle() {
         }
         SessionStatus::ReplyReceived(reply_message) => {
             msg::reply(reply_message, 0).expect("Error in sending reply");
+            // msg::reply(Event::Hello, 0).expect("Error in sending reply");
             session.session_status = SessionStatus::Waiting
         }
     }

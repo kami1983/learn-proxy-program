@@ -25,7 +25,15 @@ fn success_test() {
     assert!(!result.main_failed());
 
     let log = Log::builder().source(1).dest(USER).payload(Event::Number(0));
+    // let log = Log::builder().source(1).dest(USER).payload(Event::Hello);
     assert!(result.contains(&log));
+
+    // println!("result = {:?}", &result);
+    // println!("log = {:?}", &log);
+    // assert!(false);
+
+
+
 
     // let mailbox = system.get_mailbox(USER);
     // let log = Log::builder().source(1).dest(USER).payload(Event::Number(0));
